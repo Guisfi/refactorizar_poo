@@ -1,0 +1,75 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.inventario0;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Adrian.G
+ */
+public class Inventario0 {
+ static ArrayList <inv>  intven= new ArrayList<>();
+    public static void main(String[] args) {
+        Scanner sc = new Scanner (System.in);
+        
+        int opcion = 3;
+        do {     
+            System.out.println("Elige una opcion");
+            System.out.println("1-.agregar producto");
+            System.out.println("2-.Mostrar Producto");
+            System.out.println("3-.Salir");
+            opcion =  sc.nextInt();
+            switch (opcion) {
+                case 1:
+                    System.out.println("Nombre: ");
+                   String Nombre = sc.next();
+                    System.out.println("Cantidad: ");
+                    int Cantidad = sc.nextInt();
+                    System.out.println("Precio: ");
+                    double Precio = sc.nextDouble();
+                    intven.add(new inv(Nombre,Cantidad,Precio));
+                    break;
+                case 2:
+                    for(inv ohy:intven){
+                        ohy.mostrarInvet();
+                    }
+                    break;
+                case 3:
+                    System.out.println("Salir");
+                    
+                    break;
+                default:
+                    System.out.println("¡Opcion ivalida!");
+            }
+            
+        } while (opcion != 3); 
+    }
+}
+class inv{
+private String Nombre;
+private int Cantidad;
+private double Precio;
+inv(String Nombre){
+this.Nombre=Nombre;
+}
+inv(int Cantidad){
+this.Cantidad=Cantidad;
+}
+inv(double Precio){
+this.Precio=Precio;
+}
+inv(String Nombre,int Cantidad,double Precio){
+this.Nombre=Nombre;
+this.Cantidad=Cantidad;
+this.Precio=Precio;
+}
+void mostrarInvet(){
+    System.out.println("Nombre: " + Nombre + "Cantidad: " + Cantidad + "precio: " + Precio);
+}
+}
+
+ 
